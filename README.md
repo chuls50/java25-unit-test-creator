@@ -135,6 +135,24 @@ class. Claude will match the package declaration automatically.
 > ❌ **Do NOT** create a separate `/tests` folder at the root. Maven and Gradle will not
 > pick it up automatically and your tests won't run with `mvn test` or `./gradlew test`.
 
+### IntelliJ IDEA Users — Even Easier!
+
+IntelliJ makes this process super smooth with drag-and-drop:
+
+**The fastest way in IntelliJ:**
+1. Download the generated `*Test.java` file from Claude
+2. In IntelliJ's Project panel, navigate to `src/test/java/<your-package>/`
+3. Drag the file directly from your Downloads folder into that folder in the IntelliJ panel
+4. IntelliJ will ask "Copy or Move?" — hit **Copy**
+5. Done! IntelliJ auto-detects it, compiles it, and it shows up in the test runner immediately
+
+**Run the test instantly:**
+- Click the green ▶ arrow next to the class name or any `@Test` method
+- Or right-click the file → **Run 'OrderServiceTest'**
+- Or `Ctrl+Shift+F10` (Windows) / `Ctrl+Shift+R` (Mac) with the file open
+
+> 💡 **Note:** IntelliJ will show a warning if the package declaration in the test file doesn't match the folder it's dropped into. The skill matches the package from your source class automatically, so as long as you drop it in the right folder, this won't be an issue.
+
 ---
 
 ## Java Project Dependencies
