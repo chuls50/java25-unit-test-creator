@@ -42,35 +42,58 @@ See the [`examples/`](examples/) folder for complete input → output walkthroug
 
 ---
 
-## Installation (Claude Code CLI)
+## Quick Setup
 
-> **Requires:** Claude Code (`claude` CLI) installed and authenticated.
+### For VS Code Users
+
+1. **Install Claude for VS Code extension** from the VS Code marketplace
+2. **Clone and install this skill:**
 
 ```bash
-# 1. Clone this repo
+# Clone the repository
 git clone https://github.com/chuls50/java25-unit-test-creator.git
 cd java25-unit-test-creator
 
-# 2. Add the skill to Claude Code
+# Install Claude CLI (if not already installed)
+npm install -g @anthropic-ai/claude-cli
+
+# Add the skill to Claude Code
 claude skills add .
 
-# 3. Verify it's installed
+# Verify installation
 claude skills list
 ```
 
-The skill is now active in any Claude Code session.
+3. **Open your Java project in VS Code**
+4. **Start using:** Upload a `.java` file to Claude chat and ask for unit tests
 
----
+### For IntelliJ IDEA Users
 
-## Installation (Claude.ai Web)
+1. **Install Claude plugin** from IntelliJ marketplace (or use Claude CLI)
+2. **Clone this repository:**
 
-1. Go to [claude.ai](https://claude.ai) → **Settings** → **Features** → **Skills**
-2. Click **Add Skill from GitHub**
-3. Enter: `chuls50/java25-unit-test-creator`
-4. Click **Install**
+```bash
+git clone https://github.com/chuls50/java25-unit-test-creator.git
+```
 
-The skill will appear in your skill list and activate automatically when you ask Claude
-to write Java unit tests.
+3. **Install the skill (if using Claude CLI):**
+
+```bash
+cd java25-unit-test-creator
+claude skills add .
+```
+
+4. **Setup your workflow:**
+   - Open this `java25-unit-test-creator` project in IntelliJ alongside your main Java project
+   - Generated tests will appear in the `outputs/` folder
+   - Drag tests from `outputs/` to your main project's `src/test/java/` directory
+
+### Verification
+
+The skill activates automatically when you:
+- Mention "unit tests", "JUnit", or "write tests" for Java code
+- Upload a `.java` file and ask about testing
+- Request test generation for specific methods or classes
 
 ---
 
@@ -78,7 +101,7 @@ to write Java unit tests.
 
 ### Basic Usage — Upload a File
 
-1. Open a Claude conversation (claude.ai or Claude Code)
+1. Open Claude in your IDE (VS Code or IntelliJ with Claude plugin)
 2. Attach your `.java` source file
 3. Type any of these prompts:
 
@@ -111,7 +134,7 @@ public class StringUtils {
 
 ## Where Do the Generated Tests Go?
 
-When the skill runs inside IntelliJ via Claude Code, it writes the generated test
+When the skill runs inside your IDE via Claude, it writes the generated test
 file directly to the `outputs/` folder at the root of this repo:
 
 ```
@@ -140,6 +163,14 @@ your-java-project/
 3. Navigate to `src/test/java/<your-package>/`
 4. Paste — IntelliJ will compile it automatically
 5. Click the green ▶ next to the class name to run it
+
+**In VS Code:**
+
+1. Open the `outputs/` folder in the Explorer panel
+2. Copy the generated `*Test.java` file
+3. Navigate to your project's `src/test/java/<your-package>/` folder
+4. Paste the file
+5. Use the Test Explorer or run `mvn test` / `./gradlew test` in terminal
 
 > The `outputs/` folder is intentionally empty in the repo. It is held in git
 > by a `.gitkeep` file and is where every generated test lands before you move it.

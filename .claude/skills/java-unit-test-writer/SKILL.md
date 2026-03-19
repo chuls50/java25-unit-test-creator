@@ -22,12 +22,12 @@ service layers with mocked dependencies.
 
 | Task                      | Go to                                                      |
 | ------------------------- | ---------------------------------------------------------- |
-| Full annotation reference | [references/annotations.md](references/annotations.md)     |
-| Mockito mocking patterns  | [references/mockito.md](references/mockito.md)             |
-| AssertJ fluent assertions | [references/assertj.md](references/assertj.md)             |
-| Parameterized tests       | [references/parameterized.md](references/parameterized.md) |
-| Real-world test patterns  | [references/patterns.md](references/patterns.md)           |
-| Coverage with JaCoCo      | [references/coverage.md](references/coverage.md)           |
+| Full annotation reference | [references/annotations.md](./references/annotations.md)     |
+| Mockito mocking patterns  | [references/mockito.md](./references/mockito.md)             |
+| AssertJ fluent assertions | [references/assertj.md](./references/assertj.md)             |
+| Parameterized tests       | [references/parameterized.md](./references/parameterized.md) |
+| Real-world test patterns  | [references/patterns.md](./references/patterns.md)           |
+| Coverage with JaCoCo      | [references/coverage.md](./references/coverage.md)           |
 
 ---
 
@@ -49,10 +49,10 @@ Identify what kind of class you are testing. This determines the approach:
 | Class Type               | Characteristics                             | Approach                                                          |
 | ------------------------ | ------------------------------------------- | ----------------------------------------------------------------- |
 | **Pure logic / utility** | No injected dependencies                    | Instantiate directly in `@BeforeEach`                             |
-| **Service layer**        | Has `@Autowired` / constructor dependencies | Use Mockito — read [references/mockito.md](references/mockito.md) |
+| **Service layer**        | Has `@Autowired` / constructor dependencies | Use Mockito — read [references/mockito.md](./references/mockito.md) |
 | **Value object / POJO**  | Getters, setters, equals, hashCode          | Test construction, equality, edge values                          |
 | **Static utility**       | All static methods                          | Call directly; no setup needed                                    |
-| **Collections-heavy**    | Returns/accepts `List`, `Map`, `Set`        | Use AssertJ — read [references/assertj.md](references/assertj.md) |
+| **Collections-heavy**    | Returns/accepts `List`, `Map`, `Set`        | Use AssertJ — read [references/assertj.md](./references/assertj.md) |
 
 ### Step 3 — Plan the Tests
 
@@ -139,7 +139,7 @@ assertAll(
 ```
 
 **Use AssertJ** for collections, strings, complex objects, and chained assertions.
-See [references/assertj.md](references/assertj.md) for a full reference.
+See [references/assertj.md](./references/assertj.md) for a full reference.
 
 ```java
 // Collection example
@@ -204,12 +204,12 @@ void process_whenInputNull_thenThrowsWithMessage() {
 
 | Situation                                                   | Read                                            |
 | ----------------------------------------------------------- | ----------------------------------------------- |
-| Class has `@Autowired` or constructor-injected dependencies | [mockito.md](references/mockito.md)             |
-| Testing collections, strings, or object fields              | [assertj.md](references/assertj.md)             |
-| Same test logic with many different inputs                  | [parameterized.md](references/parameterized.md) |
-| Need `@Nested`, `@Tag`, `@Disabled`, `@Timeout`             | [annotations.md](references/annotations.md)     |
-| Real-world examples (service, CRUD, util)                   | [patterns.md](references/patterns.md)           |
-| User asks about coverage or JaCoCo                          | [coverage.md](references/coverage.md)           |
+| Class has `@Autowired` or constructor-injected dependencies | [mockito.md](./references/mockito.md)             |
+| Testing collections, strings, or object fields              | [assertj.md](./references/assertj.md)             |
+| Same test logic with many different inputs                  | [parameterized.md](./references/parameterized.md) |
+| Need `@Nested`, `@Tag`, `@Disabled`, `@Timeout`             | [annotations.md](./references/annotations.md)     |
+| Real-world examples (service, CRUD, util)                   | [patterns.md](./references/patterns.md)           |
+| User asks about coverage or JaCoCo                          | [coverage.md](./references/coverage.md)           |
 
 ---
 
