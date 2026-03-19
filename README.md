@@ -111,47 +111,35 @@ public class StringUtils {
 
 ## Where Do the Generated Tests Go?
 
-Claude outputs each test file as a **downloadable `.java` file**.
+When the skill runs inside IntelliJ via Claude Code, it writes the generated test 
+file directly to the `outputs/` folder at the root of this repo:
+```
+java25-unit-test-creator/
+└── outputs/
+    └── OrderServiceTest.java    ← Claude writes it here
+```
 
-After downloading, place it in your Java project following **standard Maven/Gradle structure**:
-
+Once it appears there, move it into your Java project following standard 
+Maven/Gradle structure:
 ```
 your-java-project/
-├── src/
-│   ├── main/
-│   │   └── java/
-│   │       └── com/example/
-│   │           └── UserService.java          ← your source class
-│   └── test/
-│       └── java/
-│           └── com/example/
-│               └── UserServiceTest.java      ← paste the downloaded file HERE
-├── pom.xml (or build.gradle)
+└── src/
+    └── test/
+        └── java/
+            └── com/
+                └── example/
+                    └── OrderServiceTest.java   ← move it here
 ```
 
-**The rule:** the test file goes in `src/test/java/` under the **same package** as the source
-class. Claude will match the package declaration automatically.
+**In IntelliJ:**
+1. Open the `outputs/` folder in the Project panel
+2. Right-click `OrderServiceTest.java` → Copy
+3. Navigate to `src/test/java/<your-package>/`
+4. Paste — IntelliJ will compile it automatically
+5. Click the green ▶ next to the class name to run it
 
-> ❌ **Do NOT** create a separate `/tests` folder at the root. Maven and Gradle will not
-> pick it up automatically and your tests won't run with `mvn test` or `./gradlew test`.
-
-### IntelliJ IDEA Users — Even Easier!
-
-IntelliJ makes this process super smooth with drag-and-drop:
-
-**The fastest way in IntelliJ:**
-1. Download the generated `*Test.java` file from Claude
-2. In IntelliJ's Project panel, navigate to `src/test/java/<your-package>/`
-3. Drag the file directly from your Downloads folder into that folder in the IntelliJ panel
-4. IntelliJ will ask "Copy or Move?" — hit **Copy**
-5. Done! IntelliJ auto-detects it, compiles it, and it shows up in the test runner immediately
-
-**Run the test instantly:**
-- Click the green ▶ arrow next to the class name or any `@Test` method
-- Or right-click the file → **Run 'OrderServiceTest'**
-- Or `Ctrl+Shift+F10` (Windows) / `Ctrl+Shift+R` (Mac) with the file open
-
-> 💡 **Note:** IntelliJ will show a warning if the package declaration in the test file doesn't match the folder it's dropped into. The skill matches the package from your source class automatically, so as long as you drop it in the right folder, this won't be an issue.
+> The `outputs/` folder is intentionally empty in the repo. It is held in git 
+> by a `.gitkeep` file and is where every generated test lands before you move it.
 
 ---
 

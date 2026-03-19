@@ -1,0 +1,2 @@
+# Keep the outputs folder but ignore generated test files
+outputs/*.java
