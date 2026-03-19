@@ -111,16 +111,18 @@ public class StringUtils {
 
 ## Where Do the Generated Tests Go?
 
-When the skill runs inside IntelliJ via Claude Code, it writes the generated test 
+When the skill runs inside IntelliJ via Claude Code, it writes the generated test
 file directly to the `outputs/` folder at the root of this repo:
+
 ```
 java25-unit-test-creator/
 └── outputs/
     └── OrderServiceTest.java    ← Claude writes it here
 ```
 
-Once it appears there, move it into your Java project following standard 
+Once it appears there, move it into your Java project following standard
 Maven/Gradle structure:
+
 ```
 your-java-project/
 └── src/
@@ -132,13 +134,14 @@ your-java-project/
 ```
 
 **In IntelliJ:**
+
 1. Open the `outputs/` folder in the Project panel
 2. Right-click `OrderServiceTest.java` → Copy
 3. Navigate to `src/test/java/<your-package>/`
 4. Paste — IntelliJ will compile it automatically
 5. Click the green ▶ next to the class name to run it
 
-> The `outputs/` folder is intentionally empty in the repo. It is held in git 
+> The `outputs/` folder is intentionally empty in the repo. It is held in git
 > by a `.gitkeep` file and is where every generated test lands before you move it.
 
 ---

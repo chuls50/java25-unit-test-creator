@@ -66,9 +66,10 @@ Keep this outline short. Confirm with the user if the scope is large or ambiguou
 
 ### Step 4 — Write the Tests
 
-Follow the conventions below and generate the test file. Determine the class name 
-from the source file and write the output to the `outputs/` folder at the root of 
+Follow the conventions below and generate the test file. Determine the class name
+from the source file and write the output to the `outputs/` folder at the root of
 this repo using the naming convention `<SourceClassName>Test.java`.
+
 ```bash
 # Example output path
 outputs/OrderServiceTest.java

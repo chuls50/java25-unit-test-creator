@@ -38,18 +38,19 @@ Use @Nested to group tests by method and BDD-style given/when/then.
 - `willAnswer(i -> i.getArgument(0))` to return the exact argument passed in
 
 ## Where the File Lands
+
 Claude writes the test file to:
 outputs/<ClassName>Test.java
 
 From there, move it into your Java project:
 your-java-project/
 └── src/
-    └── test/
-        └── java/
-            └── com/
-                └── example/
-                    └── <package>/
-                        └── <ClassName>Test.java   ← here
+└── test/
+└── java/
+└── com/
+└── example/
+└── <package>/
+└── <ClassName>Test.java ← here
 
 ## Run It
 
